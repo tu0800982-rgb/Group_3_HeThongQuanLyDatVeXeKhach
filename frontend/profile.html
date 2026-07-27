@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hồ sơ cá nhân | VeXePro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/profile.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body>
+    <div id="navbar"></div>
+    <main class="profile-page">
+        <section class="profile-card" aria-labelledby="profileTitle">
+            <div class="profile-cover"></div>
+            <div class="profile-content">
+                <div class="profile-identity">
+                    <div id="profileAvatar" class="profile-avatar" aria-hidden="true"></div>
+                    <div>
+                        <p class="eyebrow">TÀI KHOẢN CỦA BẠN</p>
+                        <h1 id="profileTitle">Hồ sơ cá nhân</h1>
+                        <p id="profileRole" class="profile-role"></p>
+                    </div>
+                </div>
+                <form id="profileForm" class="profile-details" aria-label="Thông tin cá nhân">
+                    <label class="profile-field"><span>Họ và tên</span><input id="profileName" name="fullName" type="text" maxlength="100" required disabled></label>
+                    <div class="profile-field"><span>Số điện thoại</span><strong id="profilePhone"></strong></div>
+                    <label class="profile-field"><span>Email</span><input id="profileEmail" name="email" type="email" maxlength="100" placeholder="example@email.com" disabled></label>
+                    <div class="profile-field"><span>Loại tài khoản</span><strong id="profileAccountType"></strong></div>
+                    <div class="profile-actions"><button id="editButton" class="button button-primary" type="button"><i class="fa-regular fa-pen-to-square"></i> Chỉnh sửa</button><button id="saveButton" class="button button-primary" type="submit" hidden><i class="fa-solid fa-check"></i> Lưu thay đổi</button><button id="cancelButton" class="button button-secondary" type="button" hidden>Hủy</button></div>
+                </form>
+                <button id="backButton" class="button button-secondary" type="button"><i class="fa-solid fa-arrow-left"></i> Quay lại</button>
+            </div>
+        </section>
+    </main>
+    <div id="footer"></div>
+    <script src="js/common.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/profile.js"></script>
+</body>
+
+</html>
