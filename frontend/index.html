@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VeXePro | Đặt vé xe khách trực tuyến</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/landing.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body>
+  <div id="navbar"></div>
+  <main>
+    <section class="hero">
+      <div class="hero-copy hero-reveal">
+        <p class="eyebrow eyebrow-light"><i class="fa-solid fa-sparkles"></i> HÀNH TRÌNH ÊM ÁI, TRỌN VẸN NIỀM VUI</p>
+        <h1>Đặt vé xe dễ dàng<br><span>cho mọi hành trình.</span></h1>
+        <p>Khám phá các tuyến xe chất lượng cao với lịch trình rõ ràng, chỗ ngồi minh bạch và trải nghiệm đặt vé mượt mà
+          chỉ trong vài phút.</p>
+        <div class="hero-proof"><span><i class="fa-solid fa-circle-check"></i> Xác nhận tức thì</span><span><i
+              class="fa-solid fa-shield-heart"></i> Thanh toán an toàn</span></div>
+      </div>
+      <form id="searchForm" class="search-card hero-reveal">
+        <div class="search-card-head">
+          <div><span class="search-kicker">ĐẶT VÉ NHANH</span>
+            <h2>Tìm chuyến xe phù hợp</h2>
+          </div><span class="search-head-icon"><i class="fa-solid fa-ticket"></i></span>
+        </div>
+        <div class="route-switch"><span><i class="fa-solid fa-route"></i> Tuyến đường</span><button id="swapRoute"
+            type="button" aria-label="Đổi chiều tuyến"><i class="fa-solid fa-arrow-right-arrow-left"></i></button></div>
+        <label><span><i class="fa-solid fa-location-dot"></i> Điểm đi</span><select id="departure" required>
+            <option value="Ha Noi">Hà Nội</option>
+            <option value="Hai Phong">Hải Phòng</option>
+          </select></label>
+        <label><span><i class="fa-solid fa-location-dot"></i> Điểm đến</span><select id="destination" required>
+            <option value="Hai Phong">Hải Phòng</option>
+            <option value="Ha Noi">Hà Nội</option>
+          </select></label>
+        <label><span><i class="fa-regular fa-calendar"></i> Ngày đi</span><input id="departureDate" type="date"></label>
+        <label><span><i class="fa-solid fa-chair"></i> Loại ghế</span><select id="seatType">
+            <option value="">Tất cả loại ghế</option>
+            <option value="VIP">Ghế VIP</option>
+            <option value="NORMAL">Ghế thường</option>
+          </select></label>
+        <button class="button button-primary" type="submit"><i class="fa-solid fa-magnifying-glass"></i> Tìm chuyến
+          xe</button>
+      </form>
+    </section>
+    <section class="stats-band" aria-label="Thống kê VeXePro">
+      <div><strong><b data-counter="500">0</b>K+</strong><span>Khách hàng tin chọn</span></div>
+      <div><strong><b data-counter="50">0</b>+</strong><span>Nhà xe đối tác</span></div>
+      <div><strong><b data-counter="200">0</b>+</strong><span>Tuyến xe mỗi ngày</span></div>
+      <div><strong>4.9<i class="fa-solid fa-star"></i></strong><span>Điểm đánh giá</span></div>
+    </section>
+    <section class="section popular-section">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">TUYẾN ĐƯỢC YÊU THÍCH</p>
+          <h2>Hành trình phổ biến hôm nay</h2>
+          <p>Chọn tuyến xe phù hợp và bắt đầu chuyến đi của bạn.</p>
+        </div><a href="trips.html" class="text-link">Xem tất cả tuyến <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      <div class="route-grid route-grid-pro">
+        <a href="trips.html?departure=Ha%20Noi&destination=Hai%20Phong"
+          class="route-card route-card-photo route-photo-one"><span class="route-badge"><i class="fa-solid fa-fire"></i>
+            Phổ biến</span>
+          <div class="route-card-overlay">
+            <h3>Hà Nội <i class="fa-solid fa-arrow-right"></i> Hải Phòng</h3>
+            <div><span><i class="fa-regular fa-clock"></i> 2 giờ 30 phút</span><strong>Từ 150.000đ</strong></div>
+          </div>
+        </a>
+        <a href="trips.html" class="route-card route-card-photo route-photo-two"><span class="route-badge"><i
+              class="fa-solid fa-crown"></i> Được yêu thích</span>
+          <div class="route-card-overlay">
+            <h3>Hà Nội <i class="fa-solid fa-arrow-right"></i> Quảng Ninh</h3>
+            <div><span><i class="fa-regular fa-clock"></i> 3 giờ 15 phút</span><strong>Từ 220.000đ</strong></div>
+          </div>
+        </a>
+        <a href="trips.html" class="route-card route-card-photo route-photo-three"><span class="route-badge"><i
+              class="fa-solid fa-bolt"></i> Tiện lợi</span>
+          <div class="route-card-overlay">
+            <h3>Hà Nội <i class="fa-solid fa-arrow-right"></i> Nam Định</h3>
+            <div><span><i class="fa-regular fa-clock"></i> 2 giờ 00 phút</span><strong>Từ 130.000đ</strong></div>
+          </div>
+        </a>
+      </div>
+    </section>
+    <section class="section promotion-wrap">
+      <div class="promotion"><span class="promo-orb orb-one"></span><span class="promo-orb orb-two"></span>
+        <div>
+          <p class="eyebrow">ƯU ĐÃI THÀNH VIÊN</p>
+          <h2>Đi thường xuyên,<br>tiết kiệm nhiều hơn.</h2>
+          <p>Nhận ưu đãi đến 20% cho mỗi hành trình khi trở thành khách hàng thân thiết của VeXePro.</p><a
+            href="trips.html" class="button button-light">Khám phá ưu đãi <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+        <div class="promotion-art"><i class="fa-solid fa-ticket"></i><span>ƯU ĐÃI<br><b>20%</b></span></div>
+      </div>
+    </section>
+    <section class="section why-section">
+      <div class="section-heading center-heading">
+        <div>
+          <p class="eyebrow">VÌ SAO CHỌN VEXEPRO</p>
+          <h2>Mọi hành trình đều an tâm</h2>
+          <p>Chúng tôi chăm chút từng điểm chạm để bạn an tâm trên mọi chuyến đi.</p>
+        </div>
+      </div>
+      <div class="why-grid">
+        <article><i class="fa-solid fa-ticket"></i>
+          <h3>Đặt vé minh bạch</h3>
+          <p>Thông tin chuyến xe, chỗ ngồi và giá vé luôn rõ ràng.</p>
+        </article>
+        <article><i class="fa-solid fa-shield-halved"></i>
+          <h3>Thanh toán an toàn</h3>
+          <p>Đa dạng phương thức thanh toán, xử lý nhanh chóng.</p>
+        </article>
+        <article><i class="fa-solid fa-headset"></i>
+          <h3>Hỗ trợ tận tâm</h3>
+          <p>Đội ngũ sẵn sàng hỗ trợ bạn trong suốt hành trình.</p>
+        </article>
+        <article><i class="fa-solid fa-chair"></i>
+          <h3>Chọn chỗ trực quan</h3>
+          <p>Sơ đồ ghế sinh động, cập nhật trạng thái rõ ràng.</p>
+        </article>
+        <article><i class="fa-solid fa-bus-simple"></i>
+          <h3>Nhà xe chất lượng</h3>
+          <p>Đối tác uy tín, đa dạng loại xe hiện đại và tiện nghi.</p>
+        </article>
+        <article><i class="fa-solid fa-route"></i>
+          <h3>Tuyến đường linh hoạt</h3>
+          <p>Dễ dàng tìm kiếm tuyến phù hợp với lịch trình của bạn.</p>
+        </article>
+      </div>
+    </section>
+    <section class="section testimonials">
+      <div class="section-heading center-heading">
+        <div>
+          <p class="eyebrow">KHÁCH HÀNG NÓI GÌ</p>
+          <h2>Hơn cả một chuyến đi</h2>
+          <p>Những trải nghiệm thật từ khách hàng của VeXePro.</p>
+        </div>
+      </div>
+      <div class="review-grid review-grid-pro">
+        <blockquote>
+          <div class="review-stars">★★★★★</div>
+          <p>“Đặt vé rất nhanh, giao diện rõ ràng và sơ đồ ghế dễ dùng. Mình sẽ tiếp tục sử dụng cho những chuyến đi
+            tới.”</p>
+          <footer><span class="review-avatar avatar-one"></span><span><b>Minh Anh</b><small>Khách hàng thân
+                thiết</small></span></footer>
+        </blockquote>
+        <blockquote>
+          <div class="review-stars">★★★★★</div>
+          <p>“Xe đúng giờ, quy trình thanh toán đơn giản. Mọi thông tin đều có sẵn nên mình cảm thấy rất yên tâm.”</p>
+          <footer><span class="review-avatar avatar-two"></span><span><b>Quang Huy</b><small>Khách hàng
+                VIP</small></span></footer>
+        </blockquote>
+        <blockquote>
+          <div class="review-stars">★★★★★</div>
+          <p>“Tôi thích nhất là có thể tự chọn ghế và quản lý vé nhanh chóng. Trải nghiệm rất chuyên nghiệp.”</p>
+          <footer><span class="review-avatar avatar-three"></span><span><b>Thu Hà</b><small>Khách hàng thành
+                viên</small></span></footer>
+        </blockquote>
+      </div>
+    </section>
+  </main>
+  <div id="footer"></div>
+  <script src="js/common.js"></script>
+  <script src="js/landing.js"></script>
+</body>
+
+</html>
