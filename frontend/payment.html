@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Thanh toán | RouteLink</title>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/payment.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body>
+    <div id="navbar"></div>
+    <main class="page-shell">
+        <div class="page-title">
+            <p class="eyebrow">THANH TOÁN</p>
+            <h1>Chọn phương thức thanh toán</h1>
+        </div>
+        <section class="checkout-layout">
+            <form id="paymentForm" class="form-card">
+                <h2>Phương thức thanh toán</h2><label class="payment-option"><input type="radio" name="paymentMethod"
+                        value="CASH" checked><span><i class="fa-solid fa-money-bill-wave"></i><b>Tiền
+                            mặt</b><small>Thanh toán khi lên xe</small></span></label><label
+                    class="payment-option"><input type="radio" name="paymentMethod" value="BANK_TRANSFER"><span><i
+                            class="fa-solid fa-building-columns"></i><b>Chuyển khoản</b><small>Xác nhận ngay sau khi
+                            thanh toán</small></span></label><label class="payment-option"><input type="radio"
+                        name="paymentMethod" value="EWALLET"><span><i class="fa-solid fa-wallet"></i><b>Ví điện
+                            tử</b><small>Thanh toán an toàn, nhanh chóng</small></span></label><button
+                    class="button button-primary button-block" type="submit">Thanh toán <i
+                        class="fa-solid fa-lock"></i></button>
+            </form>
+            <aside id="paymentSummary" class="order-card"></aside>
+        </section>
+    </main>
+    <div id="footer"></div>
+    <script src="js/common.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/payment.js"></script>
+</body>
+
+</html>
