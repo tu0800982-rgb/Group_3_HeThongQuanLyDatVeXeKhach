@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Quản lý vé khách hàng | VeXePro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/manage.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body>
+    <div class="admin-layout">
+        <aside class="sidebar"><a class="brand" href="index.html"><i class="fa-solid fa-bus-simple"></i> VeXe<span
+                    class="brand-accent">Pro</span></a>
+            <nav><a href="dashboard.html"><i class="fa-solid fa-chart-pie"></i> Tổng quan</a><a href="trips.html"><i
+                        class="fa-solid fa-route"></i> Chuyến xe</a><a class="active" href="admin-tickets.html"><i
+                        class="fa-solid fa-ticket"></i> Quản lý vé khách hàng</a><a href="index.html"><i
+                        class="fa-solid fa-arrow-left"></i> Về website</a></nav>
+        </aside>
+        <main class="dashboard-main">
+            <header class="dashboard-header">
+                <div>
+                    <p class="eyebrow">STAFF PORTAL</p>
+                    <h1>Quản lý vé khách hàng</h1>
+                    <p class="muted">Tra cứu, xem chi tiết, in hoặc hủy vé trong toàn hệ thống.</p>
+                </div>
+            </header>
+            <section class="admin-filter form-card">
+                <div class="manage-inputs"><label>Tìm kiếm<input id="keyword"
+                            placeholder="Mã vé, tên, SĐT, tuyến xe"></label><label>Trạng thái booking<select
+                            id="bookingStatus">
+                            <option value="">Tất cả</option>
+                            <option value="PENDING">Chờ thanh toán</option>
+                            <option value="CONFIRMED">Đã xác nhận</option>
+                            <option value="CANCELLED">Đã hủy</option>
+                        </select></label><label>Trạng thái thanh toán<select id="paymentStatus">
+                            <option value="">Tất cả</option>
+                            <option value="SUCCESS">Thành công</option>
+                            <option value="PENDING">Chờ thanh toán</option>
+                        </select></label><label>Nhà xe<input id="busCompany"
+                            placeholder="Ví dụ: Green Transit"></label><label>Ngày khởi hành<input id="departureDate"
+                            type="date"></label></div>
+                <div class="manage-search-actions"><button id="filterTickets" class="button button-primary"><i
+                            class="fa-solid fa-filter"></i> Lọc vé</button><button id="resetTickets"
+                        class="button button-secondary">Đặt lại</button></div>
+            </section>
+            <section id="adminTicketList" class="manage-result" aria-live="polite"></section>
+        </main>
+    </div>
+    <div id="cancelModal" class="manage-modal" hidden>
+        <div class="modal-backdrop" data-close-modal></div>
+        <section class="modal-card">
+            <div class="modal-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
+            <h2>Xác nhận hủy vé</h2>
+            <p>Bạn có chắc chắn muốn hủy chuyến xe này không?</p>
+            <p class="modal-note">Sau khi hủy, thao tác này không thể hoàn tác.</p>
+            <div><button class="button button-secondary" data-close-modal>Quay lại</button><button id="confirmCancel"
+                    class="button button-primary">Đồng ý</button></div>
+        </section>
+    </div>
+    <div id="ticketModal" class="ticket-modal" hidden>
+        <div class="ticket-modal-backdrop"></div>
+        <div id="ticketModalContent"></div>
+    </div>
+    <script src="js/common.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/admin-tickets.js"></script>
+</body>
+
+</html>
