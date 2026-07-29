@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Vé của tôi | VeXePro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/manage.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body>
+    <div id="navbar"></div>
+    <main class="page-shell manage-shell">
+        <section id="authRequired" class="auth-required form-card" hidden><i class="fa-solid fa-lock"></i>
+            <h2>Bạn cần đăng nhập để sử dụng tính năng này</h2>
+            <p>Đăng nhập để xem và quản lý vé của bạn.</p><a class="button button-primary"
+                href="login.html?redirect=history.html">Đăng nhập</a>
+        </section>
+        <div id="ticketManagement" hidden>
+            <div class="manage-heading">
+                <p class="eyebrow">TRUNG TÂM KHÁCH HÀNG</p>
+                <h1>VÉ CỦA TÔI</h1>
+                <p>Quản lý tất cả vé thuộc số điện thoại của tài khoản đang đăng nhập.</p>
+            </div>
+            <section id="historyList" class="manage-result" aria-live="polite"></section>
+        </div>
+    </main>
+    <div id="footer"></div>
+    <div id="cancelModal" class="manage-modal" hidden>
+        <div class="modal-backdrop" data-close-modal></div>
+        <section class="modal-card">
+            <div class="modal-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
+            <h2>Xác nhận hủy vé</h2>
+            <p>Bạn có chắc chắn muốn hủy chuyến xe này không?</p>
+            <p class="modal-note">Sau khi hủy, thao tác này không thể hoàn tác.</p>
+            <div><button class="button button-secondary" data-close-modal>Quay lại</button><button id="confirmCancel"
+                    class="button button-primary">Đồng ý</button></div>
+        </section>
+    </div>
+    <div id="ticketModal" class="ticket-modal" hidden>
+        <div class="ticket-modal-backdrop"></div>
+        <div id="ticketModalContent"></div>
+    </div>
+    <script src="js/common.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/my-history.js"></script>
+</body>
+
+</html>

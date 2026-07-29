@@ -1,0 +1,130 @@
+let myTickets = [];
+let ticketToCancel = null;
+const escapeHtml = (value) =>
+  String(value ?? "—").replace(
+    /[&<>"']/g,
+    (char) =>
+      ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[
+        char
+      ],
+  );
+const statusLabel = (status) =>
+  ({
+    PENDING: "Chờ thanh toán",
+    CONFIRMED: "Đã xác nhận",
+    CANCELLED: "Đã hủy",
+    PAID: "Đã thanh toán",
+    UNPAID: "Chưa thanh toán",
+    SUCCESS: "Thành công",
+  })[status] ||
+  status ||
+  "Chưa thanh toán";
+const canCancel = (ticket) =>
+  ticket.bookingStatus !== "CANCELLED" &&
+  new Date(`${ticket.departureDate}T${ticket.departureTime}`) > new Date();
+function ticketCard(ticket) {
+  const cancelled = ticket.bookingStatus === "CANCELLED";
+  return `<article class="customer-ticket-card"><header><div><span class="ticket-code">${escapeHtml(ticket.bookingId)}</span><h2>${escapeHtml(ticket.departure)} <i class="fa-solid fa-arrow-right"></i> ${escapeHtml(ticket.destination)}</h2><p>${escapeHtml(ticket.busCompany)} · ${formatDate(ticket.departureDate)} · ${escapeHtml(ticket.departureTime).slice(0, 5)}</p></div><span class="booking-badge ${ticket.bookingStatus.toLowerCase()}">${statusLabel(ticket.bookingStatus)}</span></header><div class="ticket-facts"><div><span>Hành khách</span><b>${escapeHtml(ticket.customerName)}</b></div><div><span>Ghế / loại ghế</span><b>${escapeHtml(ticket.seatNumber)} · ${escapeHtml(ticket.seatType)}</b></div><div><span>Thanh toán</span><b>${statusLabel(ticket.paymentStatus)}</b></div><div><span>Giá vé</span><b>${formatCurrency(ticket.totalPrice)}</b></div><div><span>Trạng thái vé</span><b>${statusLabel(ticket.ticketStatus)}</b></div></div><footer><button class="button button-secondary" data-view="${ticket.bookingId}"><i class="fa-solid fa-eye"></i> Xem vé</button><button class="button button-secondary" data-print="${ticket.bookingId}"><i class="fa-solid fa-print"></i> In vé</button><button class="button button-secondary" data-pdf="${ticket.bookingId}"><i class="fa-solid fa-file-pdf"></i> Tải PDF</button><button class="button button-primary cancel-ticket" data-cancel="${ticket.bookingId}" ${canCancel(ticket) ? "" : "disabled"}><i class="fa-solid fa-ban"></i> ${cancelled ? "Vé đã hủy" : "Hủy vé"}</button></footer></article>`;
+}
+function detailsMarkup(ticket) {
+  const history = ticket.transactionHistory
+    .map(
+      (item) =>
+        `<li><i class="fa-solid ${item.type === "BOOKING_CANCELLED" ? "fa-ban" : item.type === "PAYMENT_SUCCESS" ? "fa-credit-card" : "fa-ticket"}"></i><div><b>${escapeHtml(item.description)}</b><span>${new Date(item.time).toLocaleString("vi-VN")}</span></div></li>`,
+    )
+    .join("");
+  return `<div class="ticket-modal-card"><button class="modal-close" data-close-ticket aria-label="Đóng">×</button><div class="ticket-brand"><i class="fa-solid fa-bus-simple"></i> VeXe<span>Pro</span></div><h2>${escapeHtml(ticket.departure)} <i class="fa-solid fa-arrow-right"></i> ${escapeHtml(ticket.destination)}</h2><p>Mã đặt vé: <b>${escapeHtml(ticket.bookingId)}</b> · Mã vé: <b>${escapeHtml(ticket.ticketId)}</b></p><div class="ticket-detail-grid"><div><span>Hành khách</span><b>${escapeHtml(ticket.customerName)}</b></div><div><span>Số điện thoại</span><b>${escapeHtml(ticket.phone)}</b></div><div><span>Nhà xe</span><b>${escapeHtml(ticket.busCompany)}</b></div><div><span>Khởi hành</span><b>${formatDate(ticket.departureDate)} · ${escapeHtml(ticket.departureTime).slice(0, 5)}</b></div><div><span>Ghế</span><b>${escapeHtml(ticket.seatNumber)} · ${escapeHtml(ticket.seatType)}</b></div><div><span>Giá vé</span><b>${formatCurrency(ticket.totalPrice)}</b></div></div><div class="ticket-qr">VEXE<br>PRO</div><h3>Lịch sử giao dịch</h3><ul class="transaction-list modern">${history}</ul></div>`;
+}
+function openTicket(ticket, print = false) {
+  if (print) {
+    const page = window.open("", "_blank");
+    if (!page) return showToast("Trình duyệt đang chặn cửa sổ in vé.");
+    page.document.write(
+      `<html><head><title>VeXePro - ${escapeHtml(ticket.ticketId)}</title><style>body{font:16px Arial;padding:32px;color:#172554}.ticket{border:2px dashed #2563eb;border-radius:20px;padding:30px;max-width:700px;margin:auto}.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.grid span{display:block;color:#64748b;font-size:12px}.qr{margin:25px auto;text-align:center;font-weight:bold;border:6px solid #111;width:70px;padding:12px}</style></head><body><section class="ticket"><h1>🚌 VeXePro</h1><h2>${escapeHtml(ticket.departure)} → ${escapeHtml(ticket.destination)}</h2><p>Mã đặt vé: <b>${escapeHtml(ticket.bookingId)}</b></p><div class="grid"><div><span>Hành khách</span><b>${escapeHtml(ticket.customerName)}</b></div><div><span>Ghế</span><b>${escapeHtml(ticket.seatNumber)} · ${escapeHtml(ticket.seatType)}</b></div><div><span>Khởi hành</span><b>${formatDate(ticket.departureDate)} · ${escapeHtml(ticket.departureTime).slice(0, 5)}</b></div><div><span>Giá vé</span><b>${formatCurrency(ticket.totalPrice)}</b></div></div><div class="qr">VEXE<br>PRO</div></section><script>window.onload=()=>window.print()<\/script></body></html>`,
+    );
+    page.document.close();
+    return;
+  }
+  document.getElementById("ticketModalContent").innerHTML =
+    detailsMarkup(ticket);
+  document.getElementById("ticketModal").hidden = false;
+}
+function bindCards() {
+  document
+    .querySelectorAll("[data-view]")
+    .forEach(
+      (button) =>
+        (button.onclick = () =>
+          openTicket(
+            myTickets.find(
+              (ticket) => ticket.bookingId === button.dataset.view,
+            ),
+          )),
+    );
+  document.querySelectorAll("[data-print],[data-pdf]").forEach(
+    (button) =>
+      (button.onclick = () => {
+        if (button.dataset.pdf)
+          showToast("Chọn “Lưu dưới dạng PDF” trong hộp thoại in.", "success");
+        openTicket(
+          myTickets.find(
+            (ticket) =>
+              ticket.bookingId === (button.dataset.print || button.dataset.pdf),
+          ),
+          true,
+        );
+      }),
+  );
+  document.querySelectorAll("[data-cancel]").forEach(
+    (button) =>
+      (button.onclick = () => {
+        ticketToCancel = button.dataset.cancel;
+        document.getElementById("cancelModal").hidden = false;
+      }),
+  );
+}
+async function loadMyTickets() {
+  const list = document.getElementById("historyList");
+  list.innerHTML = '<div class="loading-card">Đang tải vé của bạn…</div>';
+  try {
+    myTickets = await BusApi.getMyBookingDetails();
+    list.innerHTML = myTickets.length
+      ? myTickets.map(ticketCard).join("")
+      : '<div class="empty-state">Tài khoản này chưa có vé nào.</div>';
+    bindCards();
+  } catch (error) {
+    list.innerHTML =
+      '<div class="empty-state">Không thể tải danh sách vé.</div>';
+    showToast(error.message);
+  }
+}
+document.addEventListener("DOMContentLoaded", () => {
+  if (!currentUser()) {
+    document.getElementById("authRequired").hidden = false;
+    return;
+  }
+  document.getElementById("ticketManagement").hidden = false;
+  document.getElementById("confirmCancel").onclick = async () => {
+    if (!ticketToCancel) return;
+    try {
+      await BusApi.cancelBooking(ticketToCancel);
+      document.getElementById("cancelModal").hidden = true;
+      showToast("Hủy vé thành công.", "success");
+      loadMyTickets();
+    } catch (error) {
+      showToast(error.message);
+    }
+  };
+  document
+    .querySelectorAll("[data-close-modal]")
+    .forEach(
+      (button) =>
+        (button.onclick = () =>
+          (document.getElementById("cancelModal").hidden = true)),
+    );
+  document.getElementById("ticketModal").onclick = (event) => {
+    if (event.target.matches("[data-close-ticket], .ticket-modal"))
+      event.currentTarget.hidden = true;
+  };
+  loadMyTickets();
+});
