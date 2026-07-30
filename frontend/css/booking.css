@@ -1,0 +1,74 @@
+.order-card {
+    position: sticky;
+    top: 92px
+}
+
+.order-card h2 {
+    font-size: 19px
+}
+
+.history-search {
+    display: flex;
+    gap: 16px;
+    align-items: end;
+    max-width: 620px
+}
+
+.history-search label {
+    flex: 1;
+    margin: 0
+}
+
+.history-list {
+    display: grid;
+    gap: 16px;
+    margin-top: 24px
+}
+
+.history-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 22px;
+    display: flex;
+    justify-content: space-between;
+    gap: 18px;
+    align-items: center;
+    box-shadow: var(--shadow)
+}
+
+.history-card h3,
+.history-card p {
+    margin: 0
+}
+
+.history-card p {
+    color: var(--muted);
+    font-size: 13px;
+    margin-top: 6px
+}
+
+.status {
+    display: inline-block;
+    padding: 4px 9px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 800
+}
+
+.status.confirmed,
+.status.paid {
+    background: #dcfce7;
+    color: #15803d
+}
+
+.status.pending,
+.status.unpaid {
+    background: #fef3c7;
+    color: #b45309
+}
+
+.status.cancelled {
+    background: #fee2e2;
+    color: #b91c1c
+}
