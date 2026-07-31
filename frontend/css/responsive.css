@@ -59,20 +59,12 @@
         grid-row: span 2
     }
 
-    .admin-layout {
-        grid-template-columns: 1fr
-    }
-
     .sidebar {
         padding: 18px
     }
 
     .sidebar .brand {
         margin-bottom: 14px
-    }
-
-    .sidebar nav {
-        grid-template-columns: repeat(4, 1fr)
     }
 
     .dashboard-main {
@@ -268,10 +260,6 @@
 
     .dashboard-cards {
         grid-template-columns: 1fr
-    }
-
-    .sidebar nav {
-        grid-template-columns: 1fr 1fr
     }
 
     .report-list {
