@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Chọn ghế | RouteLink</title>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/seat.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body>
+    <div id="navbar"></div>
+    <main class="page-shell">
+        <div id="seatTripInfo" class="trip-summary"></div>
+        <section class="seat-layout">
+            <div class="seat-card">
+                <div class="bus-front"><i class="fa-solid fa-steering-wheel"></i><span>ĐẦU XE</span></div>
+                <div id="seatMap" class="seat-map" aria-label="Sơ đồ ghế"></div>
+            </div>
+            <aside class="selection-card">
+                <h2>Chọn ghế</h2>
+                <div class="legend"><span><i class="legend-dot available"></i>Còn trống</span><span><i
+                            class="legend-dot booked"></i>Đã đặt</span><span><i class="legend-dot selected"></i>Đang
+                        chọn</span><span><i class="legend-dot vip"></i>VIP</span></div>
+                <div class="selected-details"><span>Ghế đã chọn</span><strong id="selectedSeat">Chưa
+                        chọn</strong><span>Tạm tính</span><strong id="selectedPrice">0đ</strong></div><button
+                    id="continueButton" class="button button-primary button-block" disabled>Tiếp tục <i
+                        class="fa-solid fa-arrow-right"></i></button>
+            </aside>
+        </section>
+    </main>
+    <div id="footer"></div>
+    <script src="js/common.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/seat.js"></script>
+</body>
+
+</html>
