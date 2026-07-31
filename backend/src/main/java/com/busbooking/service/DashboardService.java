@@ -7,7 +7,6 @@ import com.busbooking.enums.CustomerType;
 import com.busbooking.enums.PaymentStatus;
 import com.busbooking.enums.SeatStatus;
 import com.busbooking.enums.TicketStatus;
-import com.busbooking.model.Booking;
 import com.busbooking.model.Payment;
 import com.busbooking.repository.BookingRepository;
 import com.busbooking.repository.CustomerRepository;
