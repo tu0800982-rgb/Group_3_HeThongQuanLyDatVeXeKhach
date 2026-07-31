@@ -1,13 +1,17 @@
 .admin-layout {
     min-height: 100vh;
     display: grid;
-    grid-template-columns: 245px 1fr
+    grid-template-columns: 245px minmax(0, 1fr)
 }
 
 .sidebar {
     background: #172554;
     padding: 28px 18px;
-    color: #bfdbfe
+    color: #bfdbfe;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    overflow-y: auto
 }
 
 .sidebar .brand {
@@ -17,11 +21,16 @@
 }
 
 .sidebar nav {
-    display: grid;
-    gap: 6px
+    display: flex;
+    flex-direction: column;
+    gap: 8px
 }
 
 .sidebar nav a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 48px;
     padding: 12px;
     border-radius: 10px;
     font-weight: 600
@@ -34,7 +43,9 @@
 }
 
 .sidebar i {
-    width: 24px
+    flex: 0 0 24px;
+    width: 24px;
+    text-align: center
 }
 
 .dashboard-main {
