@@ -72,8 +72,8 @@ Mọi API trả về định dạng:
 Chạy:
 
 ```bash
-cd backend
-& "D:\apache-maven-3.9.16-bin\bin\mvn.cmd" test
+cd C:\Users\LEGION\Group_3_HeThongQuanLyDatVeXeKhach\backend
+& "D:\apache-maven-3.9.16-bin\bin\mvn.cmd" spring-boot:run
 ```
 
 Test tích hợp kiểm tra danh sách chuyến, 45 ghế/chuyến, dashboard và luồng booking → payment.
