@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Dashboard nhân viên | VeXePro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body>
+    <div class="admin-layout">
+        <aside class="sidebar"><a class="brand" href="index.html"><i class="fa-solid fa-bus-simple"></i> VeXe<span
+                    class="brand-accent">Pro</span></a>
+            <nav><a class="active" href="dashboard.html"><i class="fa-solid fa-chart-pie"></i> Tổng quan</a><a
+                    href="trips.html"><i class="fa-solid fa-route"></i> Chuyến xe</a><a href="admin-tickets.html"><i
+                        class="fa-solid fa-ticket"></i> Quản lý vé khách hàng</a><a href="index.html"><i
+                        class="fa-solid fa-arrow-left"></i> Về website</a></nav>
+        </aside>
+        <main class="dashboard-main">
+            <header class="dashboard-header">
+                <div>
+                    <p class="eyebrow">STAFF PORTAL</p>
+                    <h1>Tổng quan vận hành</h1>
+                </div><span id="dashboardDate"></span>
+            </header>
+            <section id="dashboardCards" class="dashboard-cards"></section>
+            <section class="dashboard-grid">
+                <article class="chart-card">
+                    <h2>Phân bổ trạng thái ghế</h2>
+                    <div id="seatChart" class="bar-chart"></div>
+                </article>
+                <article class="chart-card">
+                    <h2>Báo cáo tổng hợp</h2>
+                    <div id="reportList" class="report-list"></div>
+                </article>
+            </section>
+        </main>
+    </div>
+    <script src="js/common.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+
+</html>

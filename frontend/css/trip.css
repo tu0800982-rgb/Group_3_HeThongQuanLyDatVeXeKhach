@@ -1,0 +1,92 @@
+.filter-panel {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 18px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    align-items: end;
+    box-shadow: var(--shadow)
+}
+
+.filter-panel label {
+    margin: 0
+}
+
+.trip-list {
+    display: grid;
+    gap: 16px;
+    margin-top: 24px
+}
+
+.trip-card {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr auto;
+    gap: 24px;
+    align-items: center;
+    background: #fff;
+    padding: 24px;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    box-shadow: var(--shadow)
+}
+
+.operator {
+    font-weight: 800;
+    font-size: 18px
+}
+
+.bus-label {
+    display: inline-block;
+    margin-top: 5px;
+    padding: 4px 8px;
+    border-radius: 8px;
+    background: #eff6ff;
+    color: var(--primary);
+    font-size: 12px;
+    font-weight: 700
+}
+
+.times {
+    display: flex;
+    align-items: center;
+    gap: 12px
+}
+
+.times strong {
+    font-size: 22px
+}
+
+.times span {
+    color: var(--muted);
+    font-size: 12px
+}
+
+.times i {
+    color: var(--primary)
+}
+
+.trip-meta {
+    display: flex;
+    gap: 16px;
+    margin-top: 12px;
+    color: var(--muted);
+    font-size: 13px
+}
+
+.price-block {
+    text-align: right
+}
+
+.price {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--primary)
+}
+
+.seat-left {
+    font-size: 13px;
+    color: var(--success);
+    margin: 4px 0 12px
+}

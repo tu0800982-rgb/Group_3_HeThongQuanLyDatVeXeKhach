@@ -73,7 +73,7 @@ Chạy:
 
 ```bash
 cd backend
-mvn test
+& "D:\apache-maven-3.9.16-bin\bin\mvn.cmd" spring-boot:run
 ```
 
 Test tích hợp kiểm tra danh sách chuyến, 45 ghế/chuyến, dashboard và luồng booking → payment.

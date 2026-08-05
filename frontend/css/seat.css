@@ -1,0 +1,148 @@
+.trip-summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px
+}
+
+.trip-summary h1 {
+    font-size: 22px;
+    margin: 3px 0
+}
+
+.trip-summary p {
+    margin: 0;
+    color: var(--muted)
+}
+
+.seat-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 320px;
+    gap: 24px;
+    align-items: start
+}
+
+.seat-card,
+.selection-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 28px;
+    box-shadow: var(--shadow)
+}
+
+.bus-front {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 22px;
+    margin-bottom: 22px;
+    border-bottom: 2px dashed var(--border);
+    color: var(--muted);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: .1em
+}
+
+.seat-map {
+    display: grid;
+    grid-template-columns: repeat(8, minmax(36px, 1fr));
+    gap: 12px
+}
+
+.seat {
+    border: 0;
+    min-height: 46px;
+    border-radius: 10px;
+    background: #e2e8f0;
+    color: #475569;
+    font-weight: 800;
+    transition: .2s
+}
+
+.seat:not(:disabled):hover {
+    transform: translateY(-2px);
+    background: #bfdbfe
+}
+
+.seat.vip {
+    box-shadow: inset 0 0 0 2px #f59e0b;
+    background: #fef3c7
+}
+
+.seat.booked {
+    background: #e5e7eb;
+    color: #9ca3af;
+    cursor: not-allowed
+}
+
+.seat.selected {
+    background: var(--primary);
+    color: #fff;
+    box-shadow: 0 5px 12px #2563eb55
+}
+
+.seat:nth-child(9),
+.seat:nth-child(17),
+.seat:nth-child(25),
+.seat:nth-child(33),
+.seat:nth-child(41) {
+    grid-column: 1
+}
+
+.selection-card {
+    position: sticky;
+    top: 92px
+}
+
+.selection-card h2 {
+    margin-top: 0
+}
+
+.legend {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin: 18px 0 28px;
+    font-size: 12px
+}
+
+.legend span {
+    display: flex;
+    align-items: center;
+    gap: 6px
+}
+
+.legend-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 4px;
+    background: #e2e8f0
+}
+
+.legend-dot.booked {
+    background: #9ca3af
+}
+
+.legend-dot.selected {
+    background: var(--primary)
+}
+
+.legend-dot.vip {
+    background: #fef3c7;
+    border: 1px solid var(--warning)
+}
+
+.selected-details {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 12px;
+    padding: 18px 0;
+    margin-bottom: 20px;
+    border-top: 1px solid var(--border);
+    color: var(--muted)
+}
+
+.selected-details strong {
+    color: var(--text);
+    text-align: right
+}
