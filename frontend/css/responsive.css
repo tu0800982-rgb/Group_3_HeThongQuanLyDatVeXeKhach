@@ -1,0 +1,272 @@
+@media(max-width:980px) {
+    .site-header {
+        grid-template-columns: 1fr auto;
+        padding: 0 24px
+    }
+
+    .site-nav {
+        display: none
+    }
+
+    .nav-actions {
+        margin-left: auto
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+        gap: 35px;
+        padding: 64px 32px
+    }
+
+    .hero-copy {
+        max-width: 650px
+    }
+
+    .search-card {
+        justify-self: start;
+        max-width: 620px
+    }
+
+    .section {
+        padding: 64px 0
+    }
+
+    .route-grid,
+    .why-grid {
+        grid-template-columns: repeat(2, 1fr)
+    }
+
+    .route-card:last-child {
+        grid-column: 1/-1
+    }
+
+    .checkout-layout,
+    .seat-layout,
+    .dashboard-grid {
+        grid-template-columns: 1fr
+    }
+
+    .selection-card,
+    .order-card {
+        position: static
+    }
+
+    .site-footer {
+        grid-template-columns: 1.5fr 1fr 1fr
+    }
+
+    .footer-brand {
+        grid-row: span 2
+    }
+
+    .sidebar {
+        padding: 18px
+    }
+
+    .sidebar .brand {
+        margin-bottom: 14px
+    }
+
+    .dashboard-main {
+        padding: 28px
+    }
+
+    .dashboard-cards {
+        grid-template-columns: repeat(2, 1fr)
+    }
+}
+
+@media(max-width:680px) {
+    .site-header {
+        height: 70px;
+        padding: 0 16px;
+        display: flex
+    }
+
+    .menu-toggle {
+        display: block;
+        order: 3
+    }
+
+    .nav-actions {
+        display: none
+    }
+
+    .site-nav {
+        position: absolute;
+        top: 70px;
+        right: 0;
+        left: 0;
+        padding: 16px 24px;
+        background: #fff;
+        box-shadow: var(--shadow-card);
+        flex-direction: column;
+        gap: 5px
+    }
+
+    .site-nav.open {
+        display: flex
+    }
+
+    .site-nav a {
+        padding: 10px 0
+    }
+
+    .hero {
+        min-height: unset;
+        padding: 56px 18px
+    }
+
+    .hero-copy h1 {
+        font-size: 39px
+    }
+
+    .hero-copy>p:not(.eyebrow) {
+        font-size: 15px
+    }
+
+    .hero-proof {
+        gap: 12px;
+        font-size: 12px
+    }
+
+    .search-card {
+        grid-template-columns: 1fr;
+        padding: 20px;
+        border-radius: 20px
+    }
+
+    .search-card-head,
+    .route-switch,
+    .search-card .button {
+        grid-column: auto
+    }
+
+    .stats-band {
+        grid-template-columns: 1fr 1fr;
+        padding: 28px 16px;
+        gap: 22px
+    }
+
+    .stats-band div {
+        border: 0
+    }
+
+    .stats-band strong {
+        font-size: 28px
+    }
+
+    .section {
+        width: min(100% - 32px, 1180px);
+        padding: 52px 0
+    }
+
+    .section-heading {
+        align-items: start;
+        flex-direction: column;
+        margin-bottom: 25px
+    }
+
+    .text-link {
+        font-size: 13px
+    }
+
+    .route-grid,
+    .why-grid,
+    .review-grid {
+        grid-template-columns: 1fr
+    }
+
+    .route-card:last-child {
+        grid-column: auto
+    }
+
+    .route-card-photo {
+        height: 270px
+    }
+
+    .promotion {
+        padding: 35px 27px;
+        min-height: 350px
+    }
+
+    .promotion-art {
+        position: absolute;
+        right: -34px;
+        bottom: -38px;
+        width: 155px;
+        height: 155px;
+        opacity: .55
+    }
+
+    .promotion h2 {
+        font-size: 31px
+    }
+
+    .why-grid article {
+        padding: 22px
+    }
+
+    .site-footer {
+        grid-template-columns: 1fr 1fr;
+        padding: 44px 24px 20px;
+        gap: 30px
+    }
+
+    .footer-brand {
+        grid-column: 1/-1
+    }
+
+    .page-shell {
+        width: min(100% - 30px, 1180px);
+        padding: 42px 0 60px
+    }
+
+    .filter-panel {
+        grid-template-columns: 1fr
+    }
+
+    .trip-card {
+        grid-template-columns: 1fr;
+        gap: 14px
+    }
+
+    .price-block {
+        text-align: left
+    }
+
+    .history-search,
+    .history-card {
+        display: grid
+    }
+
+    .ticket-card {
+        padding: 28px 18px
+    }
+
+    .ticket-details {
+        grid-template-columns: 1fr
+    }
+
+    .dashboard-main {
+        padding: 22px 16px
+    }
+
+    .dashboard-header {
+        align-items: start;
+        gap: 12px;
+        flex-direction: column
+    }
+
+    .dashboard-cards {
+        grid-template-columns: 1fr
+    }
+
+    .report-list {
+        grid-template-columns: 1fr
+    }
+
+    .bar-row {
+        grid-template-columns: 86px 1fr 42px
+    }
+}
